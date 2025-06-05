@@ -1,0 +1,43 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update User</title>
+</head>
+<body><br><br>
+<center>
+    <form action="{% url 'update' user.uid %}" method="post">
+        {% csrf_token %}
+        <fieldset style="width:fit-content;">
+            <legend align="center"><b>User Update Table</b></legend>
+            <table align="center">
+                <tr>
+                    <th>Name</th>
+                    <td><input type="text" name="name" value="{{ user.name }}"></td>
+                </tr>
+                <tr>
+                    <th>Phone No</th>
+                    <td><input type="number" name="phoneno" value="{{ user.phoneno }}"></td>
+                </tr>
+                <tr>
+                    <th>City</th>
+                    <td><input type="text" name="city" value="{{ user.city }}"></td>
+                </tr>
+                <tr>
+                    <th>State</th>
+                    <td><input type="text" name="state" value="{{ user.state }}"></td>
+                </tr>
+                <tr>
+                    <th>Blood Group</th>
+                    <td><input type="text" name="group" value="{{ user.group }}"></td>
+                </tr>
+                <tr>
+                    <th colspan="2"><input type="submit" value="Update"></th>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+</center>
+</body>
+</html>

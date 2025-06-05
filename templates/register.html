@@ -1,0 +1,91 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+  <br><br>
+  <form action="{% url 'register' %}" method="post" >
+  {% csrf_token %}
+  <fieldset style="width:fit-content;height:auto;" >
+    <legend align="center"><font color="brown" size="4%"><b>Registration From</b></font></legend>
+  <table align="center">
+    <tr>
+      <th colspan="2"><font color="red">{{ res }}</font></th>
+    </tr>
+    <tr>
+      <th><label>User_id</label></th>
+      <td><input type="number" name="uid" required></td>
+    </tr>
+    <tr>
+      <th><label>Name</label></th>
+      <td><input type="text" name="name" required></td>
+    </tr>
+    <tr>
+      <th><label>Password</label></th>
+      <td><input type="password" name="password" required>&emsp14;&emsp14;&emsp14;<font color="red">{{ r }}</font></td>
+    </tr>
+    <tr>
+      <th><label>Conform Pwd</label></th>
+      <td><input type="password" name="cnfpassword" required></td>
+    </tr>
+    <tr>
+      <th><label>Phone no</label></th>
+      <td><input type="number" name="phoneno" required></td>
+    </tr>
+    <tr>
+      <th><label>Gender</label></th>
+      <td><input type="radio" name="gender" value="male">Male
+      <input type="radio" name="gender" value="female">Female</td>
+    </tr>
+    <tr>
+      <th><label>Languages</label></th>
+      <td><input type="checkbox" name="lang" value="telugu">Tel
+      <input type="checkbox" name="lang" value="english">Eng
+      <input type="checkbox" name="lang" value="hindi">Hin</td>
+    </tr>
+    <tr>
+      <th><label>State</label></th>
+      <td><select name="state">
+        <option value=""></option>
+        <option value="AP">AndhraPradesh</option>
+        <option value="TG">Telangana</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th><label>City</label></th>
+      <td><input type="text" name="city"></td>
+    </tr>
+    <tr>
+      <th><label>Blood Group</label></th>
+      <td><select name="group">
+        <option value=""></option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select></td>
+    </tr>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <th colspan="2"><input type="submit" value="Register">&emsp14;<input type="reset" value="Clear"></th>
+    </tr>
+  </table><hr>
+    <p>If you already Register then <a href="{% url 'login' %}">Login</a> </p>
+    <p>Password length should be b/w 8-16 and contain 1 upper letter,1 lower letter, 1symbol</p>
+    </fieldset>
+</form>
+  </center>
+</body>
+</html>
+</body>
+</html>

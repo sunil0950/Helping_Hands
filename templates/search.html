@@ -1,0 +1,66 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<form method="post">
+  {% csrf_token %}
+  <fieldset style="width:fit-content;height:auto;">
+    <legend align="center"><font color="brown" size="3%"><b>Search From</b></font></legend>
+  <table>
+      <tr>
+          <th colspan="2"><br></th>
+      </tr>
+    <tr>
+      <th><label>Blood Group</label></th>
+      <td><select name="group" required style="width:75px">
+        <option value=""></option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th colspan="2"><input type="submit" value="Search"></th>
+    </tr>
+  </table><hr>
+      <h4><font color="red">{{ res }}</font></h4>
+    </fieldset>
+</form>
+  </center><br><br><hr>
+<br><br><br><br>
+<center>
+  <form>
+<table border="1" cellspacing="0">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Group</th>
+        <th>Phoneno</th>
+        <th>State</th>
+        <th>City</th>
+    </tr>
+    {% for i in s %}
+    <tr>
+        <th><font color="blue">{{ i.name }}</font></th>
+        <th><font color="blue">{{ i.gender }}</font></th>
+        <th><font color="red">{{ i.group }}</font></th>
+        <th><font color="blue">{{ i.phoneno }}</font></th>
+        <th><font color="blue">{{ i.state }}</font></th>
+        <th><font color="blue">{{ i.city }}</font></th>
+    </tr>
+    {% endfor %}
+</table>
+    </form>
+    </center>
+</body>
+</html>

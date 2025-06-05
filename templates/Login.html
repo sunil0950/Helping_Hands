@@ -1,0 +1,44 @@
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body><br><br><br><br>
+<center>
+<form action="{% url 'login' %}" method="post">
+    {% csrf_token %}
+    <fieldset style="width:fit-content;height:auto;">
+        <legend align="center"><font color="brown"><b>Login From</b></font></legend>
+        <table>
+            <tr>
+                <th colspan="2"><font color="red" >{{ masg }}</font></th>
+            </tr>
+            <tr>
+                <td><br></td>
+            </tr>
+            <tr>
+                <th><label>Login:</label></th>
+                <td><select name="select" style="width:170px;">
+                    <option value="admin">Admin</option>
+                      <option value="user">User</option>
+                </select></td>
+            </tr>
+            <tr>
+                <th><label>User Name:</label></th>
+                <td><input type="text" name="name" required></td>
+            </tr>
+            <tr>
+                <th><label>Password:</label></th>
+                <td><input type="password" name="password" required></td>
+            </tr>
+            <tr>
+                <th colspan="2"><input type="submit" value="Login"></th>
+            </tr>
+        </table><hr>
+        <p>If you not Register then <a href="{% url 'register' %}">Register</a> </p>
+    </fieldset>
+</form>
+</body>
+</html>
